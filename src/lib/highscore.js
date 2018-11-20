@@ -9,14 +9,15 @@ export default class Highscore {
   }
 
   load() {
-    const savedScores = this.highscore(Storage.load());
+    const savedScores = Storage.load();
     if (typeof savedScores !== 'undefined' && savedScores) {
       const ul = Helper.el('ol');
+      savedScores = this.highscore(savedScores);
       Helper.empty(this.scores);
       this.button.classList.remove('highscore__button--hidden');
       for (let i = 0; i < savedScores.length; i += 1) {
         const li = Helper.el('li');
-        const text = `<span class='highscore__number'>${savedScores[i].score} stig</span><span class='highscore__name'>${savedScores[i].name}</span>`;
+        const text =<span class='highscorenumber'>${savedScores[i].score} stig</span><span class='highscorename'>${savedScores[i].name}</span>;
         ul.appendChild(li);
         li.innerHTML = text;
         this.scores.appendChild(ul);
