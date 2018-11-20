@@ -9,7 +9,7 @@ export default class Highscore {
   }
 
   load() {
-    const savedScores = Storage.load();
+    let savedScores = Storage.load();
     if (typeof savedScores !== 'undefined' && savedScores) {
       const ul = Helper.el('ol');
       savedScores = this.highscore(savedScores);
